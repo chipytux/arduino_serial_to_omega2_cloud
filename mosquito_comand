@@ -1,0 +1,1 @@
+mosquitto_pub -h m14.cloudmqtt.com -u USER -P PASSWORD U -p 10233 -t TOPIC -m 900
