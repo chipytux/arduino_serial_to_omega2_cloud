@@ -1,0 +1,29 @@
+#!/bin/sh /etc/rc.common                                                                                                                        
+                                                                                                                                                
+START=95                                                                                                                                        
+                                                                                                                                                
+start(){                                                                                                                                        
+  python /root/serial_to_cloud.py > /root/log_serial &                                                                                          
+  echo "Started"                                                                                                                                
+  exit 0                                                                                                                                        
+}                                                                                                                                               
+                                                                                                                                                
+restart(){                                                                                                                                      
+  killall python                                                                                                                                
+  echo "Stopping"                                                                                                                               
+  sleep 1                                                                                                                                       
+  echo "..."                                                                                                                                    
+  sleep 1                                                                                                                                       
+  echo "Starting"                                                                                                                               
+  echo "..."                                                                                                                                    
+  sleep 1                                                                                                                                       
+  python /root/serial_to_cloud.py > /root/log_serial &                                                                                          
+  echo "Done"                                                                                                                                   
+  exit 0                                                                                                                                        
+                                                                                                                                                
+}                                                                                                                                               
+                                                                                                                                                
+stop(){                                                                                                                                         
+  killall python                                                                                                                                
+  exit 0                                                                                                                                        
+}   
